@@ -1,10 +1,10 @@
-# DaStash used to be called GameDesk (and for one version, 2.0.0, OmniGameDesk). When one of those is installed,
+# GameDesk was called DaStash in 2.2.0 and OmniGameDesk in 2.0.0. When one of those is installed,
 # this moves its saved data over (widgets, notes, to-dos, links, the Claude key, Anti-Freeze settings) and removes it.
-param([string]$Dest = (Join-Path $env:LOCALAPPDATA 'Programs\DaStash'))
+param([string]$Dest = (Join-Path $env:LOCALAPPDATA 'Programs\GameDesk'))
 $ErrorActionPreference = 'SilentlyContinue'
-$newData = Join-Path $env:LOCALAPPDATA 'DaStash'
+$newData = Join-Path $env:LOCALAPPDATA 'GameDesk'
 
-foreach ($name in 'GameDesk', 'OmniGameDesk') {
+foreach ($name in 'DaStash', 'OmniGameDesk') {
     $old = Join-Path $env:LOCALAPPDATA "Programs\$name"
     $oldData = Join-Path $env:LOCALAPPDATA $name
     if (-not (Test-Path $old) -and -not (Test-Path $oldData)) { continue }
